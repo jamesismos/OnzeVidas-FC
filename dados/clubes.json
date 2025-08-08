@@ -1,0 +1,377 @@
+[
+  {
+    "id": 1,
+    "nome": "Flamengo",
+    "apelido": "Mengão",
+    "cidade": "Rio de Janeiro",
+    "estado": "RJ",
+    "tipo": "Associação",
+    "riqueza": "alta",
+    "orcamento": 200000000,
+    "folha_salarial": 15000000,
+    "estadio": "Maracanã",
+    "capacidade": 78838,
+    "ano_fundacao": 1895,
+    "elenco": [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125],
+    "cores": ["Preto", "Vermelho"],
+    "cores_hex": ["#000000", "#E31B23"],
+    "cor_primaria": "#000000",
+    "cor_secundaria": "#E31B23",
+    "cor_accent": "#FFFFFF",
+    "rival": "Fluminense",
+    "torcida": "Grande",
+    "jovens_promessas": [116, 117, 118, 119, 120],
+    "tecnico": {
+      "nome": "Tite",
+      "idade": 63,
+      "nacionalidade": "Brasil",
+      "contrato_ate": 2026,
+      "salario": 200000,
+      "especialidade": "Futebol ofensivo"
+    },
+    "dono": {
+      "nome": "Rodolfo Landim",
+      "idade": 65,
+      "nacionalidade": "Brasil",
+      "empresa": "Associação",
+      "patrimonio": "R$ 100 milhões"
+    },
+    "colaboradores": [
+      {
+        "nome": "Gabigol",
+        "cargo": "Atacante",
+        "idade": 28,
+        "salario": 1200000
+      },
+      {
+        "nome": "Arrascaeta",
+        "cargo": "Meia",
+        "idade": 30,
+        "salario": 800000
+      },
+      {
+        "nome": "Pedro",
+        "cargo": "Atacante",
+        "idade": 27,
+        "salario": 600000
+      }
+    ],
+    "parceiros": [
+      {
+        "nome": "Adidas",
+        "tipo": "Fornecedor",
+        "valor": "R$ 80 milhões/ano"
+      },
+      {
+        "nome": "Banco BRB",
+        "tipo": "Patrocinador Master",
+        "valor": "R$ 60 milhões/ano"
+      },
+      {
+        "nome": "Betano",
+        "tipo": "Patrocinador Oficial",
+        "valor": "R$ 40 milhões/ano"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nome": "Palmeiras",
+    "apelido": "Verdao",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "tipo": "Associação",
+    "riqueza": "alta",
+    "orcamento": 180000000,
+    "folha_salarial": 12000000,
+    "estadio": "Allianz Parque",
+    "capacidade": 43713,
+    "ano_fundacao": 1914,
+    "elenco": [201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225],
+    "cores": ["Verde", "Branco"],
+    "cores_hex": ["#006400", "#FFFFFF"],
+    "cor_primaria": "#006400",
+    "cor_secundaria": "#FFFFFF",
+    "cor_accent": "#FFD700",
+    "rival": "Corinthians",
+    "torcida": "Grande",
+    "jovens_promessas": [216, 217, 218, 219, 220],
+    "tecnico": {
+      "nome": "Abel Ferreira",
+      "idade": 45,
+      "nacionalidade": "Portugal",
+      "contrato_ate": 2025,
+      "salario": 180000,
+      "especialidade": "Futebol ofensivo"
+    },
+    "dono": {
+      "nome": "Leila Pereira",
+      "idade": 58,
+      "nacionalidade": "Brasil",
+      "empresa": "Crefisa",
+      "patrimonio": "R$ 2 bilhões"
+    },
+    "colaboradores": [
+      {
+        "nome": "Endrick",
+        "cargo": "Atacante",
+        "idade": 18,
+        "salario": 500000
+      },
+      {
+        "nome": "Raphael Veiga",
+        "cargo": "Meia",
+        "idade": 29,
+        "salario": 700000
+      },
+      {
+        "nome": "Murilo",
+        "cargo": "Zagueiro",
+        "idade": 22,
+        "salario": 300000
+      }
+    ],
+    "parceiros": [
+      {
+        "nome": "Puma",
+        "tipo": "Fornecedor",
+        "valor": "R$ 70 milhões/ano"
+      },
+      {
+        "nome": "Crefisa",
+        "tipo": "Patrocinador Master",
+        "valor": "R$ 50 milhões/ano"
+      },
+      {
+        "nome": "Banco Crefisa",
+        "tipo": "Patrocinador Oficial",
+        "valor": "R$ 30 milhões/ano"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "nome": "São Paulo",
+    "apelido": "Tricolor",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "tipo": "Associação",
+    "riqueza": "alta",
+    "orcamento": 150000000,
+    "folha_salarial": 10000000,
+    "estadio": "Morumbi",
+    "capacidade": 67721,
+    "ano_fundacao": 1930,
+    "elenco": [301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325],
+    "cores": ["Branco", "Vermelho", "Preto"],
+    "cores_hex": ["#FFFFFF", "#E31B23", "#000000"],
+    "cor_primaria": "#FFFFFF",
+    "cor_secundaria": "#E31B23",
+    "cor_accent": "#000000",
+    "rival": "Corinthians",
+    "torcida": "Grande",
+    "jovens_promessas": [316, 317, 318, 319, 320],
+    "tecnico": {
+      "nome": "Thiago Carpini",
+      "idade": 40,
+      "nacionalidade": "Brasil",
+      "contrato_ate": 2025,
+      "salario": 120000,
+      "especialidade": "Futebol ofensivo"
+    },
+    "dono": {
+      "nome": "Julio Casares",
+      "idade": 55,
+      "nacionalidade": "Brasil",
+      "empresa": "Associação",
+      "patrimonio": "R$ 50 milhões"
+    },
+    "colaboradores": [
+      {
+        "nome": "Luciano",
+        "cargo": "Atacante",
+        "idade": 32,
+        "salario": 600000
+      },
+      {
+        "nome": "Calleri",
+        "cargo": "Atacante",
+        "idade": 30,
+        "salario": 500000
+      },
+      {
+        "nome": "Wellington Rato",
+        "cargo": "Meia",
+        "idade": 29,
+        "salario": 400000
+      }
+    ],
+    "parceiros": [
+      {
+        "nome": "Adidas",
+        "tipo": "Fornecedor",
+        "valor": "R$ 60 milhões/ano"
+      },
+      {
+        "nome": "Banco Inter",
+        "tipo": "Patrocinador Master",
+        "valor": "R$ 40 milhões/ano"
+      },
+      {
+        "nome": "Neo Química",
+        "tipo": "Patrocinador Oficial",
+        "valor": "R$ 25 milhões/ano"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "nome": "Corinthians",
+    "apelido": "Timão",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "tipo": "Associação",
+    "riqueza": "alta",
+    "orcamento": 120000000,
+    "folha_salarial": 8000000,
+    "estadio": "Neo Química Arena",
+    "capacidade": 49540,
+    "ano_fundacao": 1910,
+    "elenco": [401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425],
+    "cores": ["Branco", "Preto"],
+    "cores_hex": ["#FFFFFF", "#000000"],
+    "cor_primaria": "#FFFFFF",
+    "cor_secundaria": "#000000",
+    "cor_accent": "#FFD700",
+    "rival": "Palmeiras",
+    "torcida": "Grande",
+    "jovens_promessas": [416, 417, 418, 419, 420],
+    "tecnico": {
+      "nome": "António Oliveira",
+      "idade": 42,
+      "nacionalidade": "Portugal",
+      "contrato_ate": 2025,
+      "salario": 100000,
+      "especialidade": "Futebol ofensivo"
+    },
+    "dono": {
+      "nome": "Duílio Monteiro Alves",
+      "idade": 50,
+      "nacionalidade": "Brasil",
+      "empresa": "Associação",
+      "patrimonio": "R$ 30 milhões"
+    },
+    "colaboradores": [
+      {
+        "nome": "Yuri Alberto",
+        "cargo": "Atacante",
+        "idade": 23,
+        "salario": 400000
+      },
+      {
+        "nome": "Róger Guedes",
+        "cargo": "Atacante",
+        "idade": 27,
+        "salario": 500000
+      },
+      {
+        "nome": "Renato Augusto",
+        "cargo": "Meia",
+        "idade": 36,
+        "salario": 300000
+      }
+    ],
+    "parceiros": [
+      {
+        "nome": "Nike",
+        "tipo": "Fornecedor",
+        "valor": "R$ 50 milhões/ano"
+      },
+      {
+        "nome": "Neo Química",
+        "tipo": "Patrocinador Master",
+        "valor": "R$ 35 milhões/ano"
+      },
+      {
+        "nome": "Banco BMG",
+        "tipo": "Patrocinador Oficial",
+        "valor": "R$ 20 milhões/ano"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "nome": "Santos",
+    "apelido": "Peixe",
+    "cidade": "Santos",
+    "estado": "SP",
+    "tipo": "Associação",
+    "riqueza": "média",
+    "orcamento": 80000000,
+    "folha_salarial": 5000000,
+    "estadio": "Vila Belmiro",
+    "capacidade": 16500,
+    "ano_fundacao": 1912,
+    "elenco": [501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513, 514, 515, 516, 517, 518, 519, 520, 521, 522, 523, 524, 525],
+    "cores": ["Branco", "Preto"],
+    "cores_hex": ["#FFFFFF", "#000000"],
+    "cor_primaria": "#FFFFFF",
+    "cor_secundaria": "#000000",
+    "cor_accent": "#FFD700",
+    "rival": "Palmeiras",
+    "torcida": "Média",
+    "jovens_promessas": [516, 517, 518, 519, 520],
+    "tecnico": {
+      "nome": "Fábio Carille",
+      "idade": 50,
+      "nacionalidade": "Brasil",
+      "contrato_ate": 2025,
+      "salario": 80000,
+      "especialidade": "Futebol defensivo"
+    },
+    "dono": {
+      "nome": "Marcelinho Carioca",
+      "idade": 53,
+      "nacionalidade": "Brasil",
+      "empresa": "Associação",
+      "patrimonio": "R$ 20 milhões"
+    },
+    "colaboradores": [
+      {
+        "nome": "Marcos Leonardo",
+        "cargo": "Atacante",
+        "idade": 21,
+        "salario": 200000
+      },
+      {
+        "nome": "João Paulo",
+        "cargo": "Goleiro",
+        "idade": 33,
+        "salario": 150000
+      },
+      {
+        "nome": "Lucas Lima",
+        "cargo": "Meia",
+        "idade": 34,
+        "salario": 120000
+      }
+    ],
+    "parceiros": [
+      {
+        "nome": "Umbro",
+        "tipo": "Fornecedor",
+        "valor": "R$ 20 milhões/ano"
+      },
+      {
+        "nome": "Banco Inter",
+        "tipo": "Patrocinador Master",
+        "valor": "R$ 15 milhões/ano"
+      },
+      {
+        "nome": "Neo Química",
+        "tipo": "Patrocinador Oficial",
+        "valor": "R$ 10 milhões/ano"
+      }
+    ]
+  }
+]

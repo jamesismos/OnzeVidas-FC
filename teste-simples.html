@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Simples - ONZE VIDAS FC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: white;
+            padding: 20px;
+        }
+        .teste-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .botao-teste {
+            background: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 16px;
+        }
+        .botao-teste:hover {
+            background: #45a049;
+        }
+        .log {
+            background: #000;
+            color: #0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="teste-container">
+        <h1>🧪 Teste Simples - ONZE VIDAS FC</h1>
+        
+        <h2>Testes Básicos:</h2>
+        <button class="botao-teste" onclick="testeBasico()">Teste Básico</button>
+        <button class="botao-teste" onclick="testeController()">Teste Controller</button>
+        <button class="botao-teste" onclick="testeModel()">Teste Model</button>
+        <button class="botao-teste" onclick="testeView()">Teste View</button>
+        
+        <h2>Logs:</h2>
+        <div id="log" class="log"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="models/PlayerGenerator.js"></script>
+    <script src="models/ChampionshipSystem.js"></script>
+    <script src="models/GameModel.js"></script>
+    <script src="views/GameView.js"></script>
+    <script src="controllers/GameController.js"></script>
+    
+    <script>
+        function log(mensagem) {
+            const logDiv = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            logDiv.innerHTML += `[${timestamp}] ${mensagem}<br>`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+            console.log(mensagem);
+        }
+
+        function testeBasico() {
+            log('=== TESTE BÁSICO ===');
+            log('Verificando se as classes estão disponíveis...');
+            
+            if (typeof GameModel !== 'undefined') {
+                log('✅ GameModel disponível');
+            } else {
+                log('❌ GameModel não encontrado');
+            }
+            
+            if (typeof GameView !== 'undefined') {
+                log('✅ GameView disponível');
+            } else {
+                log('❌ GameView não encontrado');
+            }
+            
+            if (typeof GameController !== 'undefined') {
+                log('✅ GameController disponível');
+            } else {
+                log('❌ GameController não encontrado');
+            }
+        }
+
+        function testeModel() {
+            log('=== TESTE MODEL ===');
+            try {
+                const model = new GameModel();
+                log('✅ GameModel criado com sucesso');
+                
+                model.init().then(() => {
+                    log('✅ GameModel inicializado com sucesso');
+                    log(`Clubes carregados: ${model.clubes.length}`);
+                    log(`Jogadores carregados: ${model.jogadores.length}`);
+                }).catch(error => {
+                    log(`❌ Erro ao inicializar GameModel: ${error.message}`);
+                });
+            } catch (error) {
+                log(`❌ Erro ao criar GameModel: ${error.message}`);
+            }
+        }
+
+        function testeView() {
+            log('=== TESTE VIEW ===');
+            try {
+                const view = new GameView();
+                log('✅ GameView criada com sucesso');
+            } catch (error) {
+                log(`❌ Erro ao criar GameView: ${error.message}`);
+            }
+        }
+
+        function testeController() {
+            log('=== TESTE CONTROLLER ===');
+            try {
+                const controller = new GameController();
+                log('✅ GameController criado com sucesso');
+                
+                controller.init().then(() => {
+                    log('✅ GameController inicializado com sucesso');
+                    log(`Model disponível: ${controller.model ? 'Sim' : 'Não'}`);
+                    log(`View disponível: ${controller.view ? 'Sim' : 'Não'}`);
+                }).catch(error => {
+                    log(`❌ Erro ao inicializar GameController: ${error.message}`);
+                });
+            } catch (error) {
+                log(`❌ Erro ao criar GameController: ${error.message}`);
+            }
+        }
+
+        // Inicialização automática
+        document.addEventListener('DOMContentLoaded', function() {
+            log('=== INICIALIZAÇÃO ===');
+            log('DOM carregado');
+            log('Executando teste básico automaticamente...');
+            setTimeout(testeBasico, 1000);
+        });
+    </script>
+</body>
+</html> 

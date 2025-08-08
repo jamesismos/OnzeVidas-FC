@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Imprensa e Gestão - ONZE VIDAS FC</title>
+    <link rel="stylesheet" href="Css/style-simples.css">
+    <style>
+        body {
+            background: var(--primary-green);
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+        }
+        .teste-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+        }
+        .teste-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .teste-header h1 {
+            color: var(--accent-yellow);
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .teste-header p {
+            color: var(--gray-light);
+            font-size: 16px;
+        }
+        .teste-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .teste-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .teste-section h2 {
+            color: var(--accent-yellow);
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .btn-teste {
+            background: var(--primary-green);
+            color: var(--white);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+        .btn-teste:hover {
+            background: var(--secondary-green);
+            transform: translateY(-2px);
+        }
+        .btn-teste.danger {
+            background: var(--danger);
+        }
+        .btn-teste.danger:hover {
+            background: #c82333;
+        }
+        .btn-teste.warning {
+            background: var(--warning);
+            color: var(--black);
+        }
+        .btn-teste.warning:hover {
+            background: #e0a800;
+        }
+        .btn-teste.info {
+            background: var(--info);
+        }
+        .btn-teste.info:hover {
+            background: #138496;
+        }
+        .controles {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .status-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .status-info strong {
+            color: var(--accent-yellow);
+        }
+        @media (max-width: 768px) {
+            .teste-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .teste-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="teste-container">
+        <div class="teste-header">
+            <h1>📰 Teste Imprensa e Gestão</h1>
+            <p>Demonstração das funcionalidades de imprensa e gestão de clube</p>
+        </div>
+
+        <div class="teste-grid">
+            <!-- Seção Imprensa -->
+            <div class="teste-section">
+                <h2>📰 Sistema de Imprensa</h2>
+                
+                <div class="controles">
+                    <button class="btn-teste" onclick="gerarMancheteTransferencia()">Transferência</button>
+                    <button class="btn-teste warning" onclick="gerarMancheteIndisciplina()">Indisciplina</button>
+                    <button class="btn-teste" onclick="gerarMancheteVitoria()">Vitória</button>
+                    <button class="btn-teste info" onclick="gerarMancheteOferta()">Oferta Empresário</button>
+                    <button class="btn-teste" onclick="carregarEventosAPI()">📡 Carregar da API</button>
+                    <button class="btn-teste danger" onclick="limparImprensa()">Limpar</button>
+                </div>
+
+                <div class="imprensa-container">
+                    <div class="imprensa-header">
+                        <h3>📰 Manchetes do Dia</h3>
+                        <button class="btn-limpar-imprensa" onclick="limparImprensa()">Limpar</button>
+                    </div>
+                    <div id="imprensa-container"></div>
+                </div>
+            </div>
+
+            <!-- Seção Gestão -->
+            <div class="teste-section">
+                <h2>⚽ Gestão de Clube</h2>
+                
+                <div class="gestao-clube-container">
+                    <div class="gestao-header">
+                        <h3>📊 Status do Clube</h3>
+                    </div>
+                    
+                    <div class="gestao-stats">
+                        <div class="stat-card">
+                            <div class="stat-label">Reputação</div>
+                            <div class="stat-value" id="reputacao-valor">50</div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" id="reputacao-bar" style="width: 50%"></div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Torcida</div>
+                            <div class="stat-value" id="torcida-valor">50</div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" id="torcida-bar" style="width: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gestao-incentivos">
+                        <div class="incentivos-header">🎁 Aplicar Incentivos</div>
+                        <div class="incentivos-grid">
+                            <button class="btn-incentivo" onclick="aplicarIncentivo('cesta')">Cesta Básica</button>
+                            <button class="btn-incentivo" onclick="aplicarIncentivo('dinheiro')">Dinheiro</button>
+                            <button class="btn-incentivo" onclick="aplicarIncentivo('carro')">Carro Zero</button>
+                        </div>
+                    </div>
+
+                    <div id="gestao-status" class="status-info">
+                        <strong>Status:</strong> Clube em condições normais
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controles Gerais -->
+        <div class="teste-section">
+            <h2>🎮 Controles Gerais</h2>
+            <div class="controles">
+                <button class="btn-teste" onclick="atualizarReputacao(10)">+10 Reputação</button>
+                <button class="btn-teste" onclick="atualizarReputacao(-10)">-10 Reputação</button>
+                <button class="btn-teste" onclick="atualizarTorcida(10)">+10 Torcida</button>
+                <button class="btn-teste" onclick="atualizarTorcida(-10)">-10 Torcida</button>
+                <button class="btn-teste warning" onclick="resetarValores()">Resetar Valores</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module">
+        import ImprensaView from './views/ImprensaView.js';
+        import GestaoClube from './models/GestaoClube.js';
+
+        // Variáveis globais
+        let imprensaView;
+        let gestaoClube;
+
+        // Clube de exemplo
+        const clubeExemplo = {
+            nome: 'Clube Teste',
+            riqueza: 'alta'
+        };
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', async function() {
+            imprensaView = new ImprensaView('imprensa-container');
+            gestaoClube = new GestaoClube(clubeExemplo);
+            
+            // Inicializar com API
+            await imprensaView.inicializarComAPI();
+            
+            console.log('✅ Sistema de Imprensa e Gestão inicializado!');
+        });
+
+        // Funções de teste para Imprensa
+        window.gerarMancheteTransferencia = function() {
+            const evento = {
+                tipo: 'transferencia',
+                jogador: 'João Silva',
+                clubeDestino: 'Flamengo'
+            };
+            imprensaView.gerarManchete(evento);
+        };
+
+        window.gerarMancheteIndisciplina = function() {
+            const evento = {
+                tipo: 'indisciplina',
+                jogador: 'Pedro Santos'
+            };
+            imprensaView.gerarManchete(evento);
+        };
+
+        window.gerarMancheteVitoria = function() {
+            const evento = {
+                tipo: 'vitoria',
+                clube: 'Palmeiras'
+            };
+            imprensaView.gerarManchete(evento);
+        };
+
+        window.gerarMancheteOferta = function() {
+            const evento = {
+                tipo: 'ofertaEmpresario',
+                clube: 'Corinthians'
+            };
+            imprensaView.gerarManchete(evento);
+        };
+
+        window.limparImprensa = function() {
+            imprensaView.limpar();
+        };
+
+        window.carregarEventosAPI = async function() {
+            await imprensaView.carregarEventosReais();
+        };
+
+        // Funções de teste para Gestão
+        window.atualizarReputacao = function(valor) {
+            gestaoClube.atualizarReputacao(valor);
+            atualizarDisplayGestao();
+        };
+
+        window.atualizarTorcida = function(valor) {
+            gestaoClube.atualizarTorcida(valor);
+            atualizarDisplayGestao();
+        };
+
+        window.aplicarIncentivo = function(tipo) {
+            const resultado = gestaoClube.aplicarIncentivo(tipo);
+            document.getElementById('gestao-status').innerHTML = `<strong>Resultado:</strong> ${resultado}`;
+        };
+
+        window.resetarValores = function() {
+            gestaoClube.reputacao = 50;
+            gestaoClube.torcida = 50;
+            atualizarDisplayGestao();
+            document.getElementById('gestao-status').innerHTML = '<strong>Status:</strong> Valores resetados';
+        };
+
+        function atualizarDisplayGestao() {
+            document.getElementById('reputacao-valor').textContent = gestaoClube.reputacao;
+            document.getElementById('reputacao-bar').style.width = gestaoClube.reputacao + '%';
+            
+            document.getElementById('torcida-valor').textContent = gestaoClube.torcida;
+            document.getElementById('torcida-bar').style.width = gestaoClube.torcida + '%';
+        }
+    </script>
+</body>
+</html>

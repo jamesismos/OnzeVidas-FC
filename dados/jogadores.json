@@ -1,0 +1,252 @@
+[
+  {
+    "id": 101,
+    "nome": "Santos",
+    "posicao": "Goleiro",
+    "idade": 33,
+    "valor": 5000000,
+    "salario": 80000,
+    "moral": 85,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 102,
+    "nome": "Matheus Cunha",
+    "posicao": "Goleiro",
+    "idade": 24,
+    "valor": 3000000,
+    "salario": 45000,
+    "moral": 78,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 103,
+    "nome": "Fabricio Bruno",
+    "posicao": "Zagueiro",
+    "idade": 28,
+    "valor": 8000000,
+    "salario": 120000,
+    "moral": 82,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 104,
+    "nome": "Leo Pereira",
+    "posicao": "Zagueiro",
+    "idade": 27,
+    "valor": 7000000,
+    "salario": 100000,
+    "moral": 80,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 105,
+    "nome": "David Luiz",
+    "posicao": "Zagueiro",
+    "idade": 36,
+    "valor": 4000000,
+    "salario": 150000,
+    "moral": 75,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 106,
+    "nome": "Ayrton Lucas",
+    "posicao": "Lateral",
+    "idade": 26,
+    "valor": 6000000,
+    "salario": 90000,
+    "moral": 85,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 107,
+    "nome": "Wesley",
+    "posicao": "Lateral",
+    "idade": 22,
+    "valor": 4000000,
+    "salario": 60000,
+    "moral": 88,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 108,
+    "nome": "Varela",
+    "posicao": "Lateral",
+    "idade": 30,
+    "valor": 5000000,
+    "salario": 80000,
+    "moral": 79,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 109,
+    "nome": "Allan",
+    "posicao": "Volante",
+    "idade": 29,
+    "valor": 7000000,
+    "salario": 110000,
+    "moral": 83,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 110,
+    "nome": "Thiago Maia",
+    "posicao": "Volante",
+    "idade": 26,
+    "valor": 6000000,
+    "salario": 95000,
+    "moral": 81,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 111,
+    "nome": "Arrascaeta",
+    "posicao": "Meia",
+    "idade": 29,
+    "valor": 15000000,
+    "salario": 200000,
+    "moral": 90,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 112,
+    "nome": "Gerson",
+    "posicao": "Meia",
+    "idade": 26,
+    "valor": 12000000,
+    "salario": 180000,
+    "moral": 87,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 113,
+    "nome": "Victor Hugo",
+    "posicao": "Meia",
+    "idade": 20,
+    "valor": 8000000,
+    "salario": 70000,
+    "moral": 92,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 114,
+    "nome": "Everton Ribeiro",
+    "posicao": "Meia",
+    "idade": 34,
+    "valor": 5000000,
+    "salario": 160000,
+    "moral": 76,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 115,
+    "nome": "Gabigol",
+    "posicao": "Atacante",
+    "idade": 27,
+    "valor": 20000000,
+    "salario": 250000,
+    "moral": 88,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 116,
+    "nome": "Pedro",
+    "posicao": "Atacante",
+    "idade": 26,
+    "valor": 18000000,
+    "salario": 220000,
+    "moral": 85,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 117,
+    "nome": "Bruno Henrique",
+    "posicao": "Atacante",
+    "idade": 32,
+    "valor": 8000000,
+    "salario": 140000,
+    "moral": 79,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 118,
+    "nome": "Luiz Araújo",
+    "posicao": "Atacante",
+    "idade": 27,
+    "valor": 10000000,
+    "salario": 120000,
+    "moral": 82,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 119,
+    "nome": "Matheus França",
+    "posicao": "Atacante",
+    "idade": 19,
+    "valor": 12000000,
+    "salario": 80000,
+    "moral": 94,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 120,
+    "nome": "Lorran",
+    "posicao": "Atacante",
+    "idade": 18,
+    "valor": 15000000,
+    "salario": 60000,
+    "moral": 96,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 121,
+    "nome": "Pulgar",
+    "posicao": "Volante",
+    "idade": 29,
+    "valor": 6000000,
+    "salario": 100000,
+    "moral": 80,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 122,
+    "nome": "De la Cruz",
+    "posicao": "Meia",
+    "idade": 25,
+    "valor": 10000000,
+    "salario": 130000,
+    "moral": 84,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 123,
+    "nome": "Cebolinha",
+    "posicao": "Atacante",
+    "idade": 27,
+    "valor": 8000000,
+    "salario": 110000,
+    "moral": 77,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 124,
+    "nome": "Marinho",
+    "posicao": "Atacante",
+    "idade": 33,
+    "valor": 3000000,
+    "salario": 90000,
+    "moral": 72,
+    "clube": "Flamengo"
+  },
+  {
+    "id": 125,
+    "nome": "Vitor Hugo",
+    "posicao": "Zagueiro",
+    "idade": 21,
+    "valor": 5000000,
+    "salario": 55000,
+    "moral": 89,
+    "clube": "Flamengo"
+  }
+]

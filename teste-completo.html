@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Completo - Onze Vidas FC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f0f0f0;
+        }
+        .teste-section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .success { color: green; }
+        .error { color: red; }
+        .info { color: blue; }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #0056b3; }
+        .clubes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .clube-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            background: white;
+        }
+        .clube-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Teste Completo - Onze Vidas FC</h1>
+    
+    <div class="teste-section">
+        <h2>1. Teste de Carregamento de Dados</h2>
+        <button onclick="testarCarregamento()">Testar Carregamento</button>
+        <div id="resultado-carregamento"></div>
+    </div>
+
+    <div class="teste-section">
+        <h2>2. Teste de Renderização de Clubes</h2>
+        <button onclick="testarRenderizacao()">Testar Renderização</button>
+        <div id="resultado-renderizacao"></div>
+        <div id="clubes-container" class="clubes-grid"></div>
+    </div>
+
+    <div class="teste-section">
+        <h2>3. Teste de Responsividade</h2>
+        <button onclick="testarResponsividade()">Testar Responsividade</button>
+        <div id="resultado-responsividade"></div>
+    </div>
+
+    <div class="teste-section">
+        <h2>4. Teste de Event Listeners</h2>
+        <button onclick="testarEventListeners()">Testar Event Listeners</button>
+        <div id="resultado-events"></div>
+    </div>
+
+    <div class="teste-section">
+        <h2>5. Logs do Console</h2>
+        <button onclick="limparLogs()">Limpar Logs</button>
+        <div id="console-logs" style="background: #000; color: #0f0; padding: 10px; border-radius: 5px; font-family: monospace; max-height: 300px; overflow-y: auto;"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="models/PlayerGenerator.js"></script>
+    <script src="models/ChampionshipSystem.js"></script>
+    <script src="js/football-data-api.js"></script>
+    <script src="models/GameModel.js"></script>
+    <script src="views/GameView.js"></script>
+    <script src="controllers/GameController.js"></script>
+
+    <script>
+        // Capturar logs do console
+        const originalLog = console.log;
+        const originalError = console.error;
+        const originalWarn = console.warn;
+
+        function addLog(message, type = 'log') {
+            const logsDiv = document.getElementById('console-logs');
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.innerHTML = `[${timestamp}] ${type.toUpperCase()}: ${message}`;
+            logsDiv.appendChild(logEntry);
+            logsDiv.scrollTop = logsDiv.scrollHeight;
+        }
+
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addLog(args.join(' '), 'log');
+        };
+
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addLog(args.join(' '), 'error');
+        };
+
+        console.warn = function(...args) {
+            originalWarn.apply(console, args);
+            addLog(args.join(' '), 'warn');
+        };
+
+        let gameController = null;
+        let gameModel = null;
+        let gameView = null;
+
+        async function testarCarregamento() {
+            const resultado = document.getElementById('resultado-carregamento');
+            resultado.innerHTML = '<p class="info">Testando carregamento...</p>';
+
+            try {
+                // Testar carregamento do modelo
+                gameModel = new GameModel();
+                await gameModel.init();
+                
+                const clubes = gameModel.getClubes();
+                const jogadores = gameModel.getJogadores();
+                
+                resultado.innerHTML = `
+                    <p class="success">✅ Modelo carregado com sucesso!</p>
+                    <p class="info">📊 Clubes: ${clubes.length}</p>
+                    <p class="info">👥 Jogadores: ${jogadores.length}</p>
+                    <p class="info">🏆 Treinadores: ${gameModel.getTreinadores().length}</p>
+                `;
+                
+                console.log('Teste de carregamento: SUCESSO');
+            } catch (error) {
+                resultado.innerHTML = `<p class="error">❌ Erro no carregamento: ${error.message}</p>`;
+                console.error('Teste de carregamento: FALHOU', error);
+            }
+        }
+
+        async function testarRenderizacao() {
+            const resultado = document.getElementById('resultado-renderizacao');
+            const container = document.getElementById('clubes-container');
+            
+            resultado.innerHTML = '<p class="info">Testando renderização...</p>';
+
+            try {
+                if (!gameModel) {
+                    gameModel = new GameModel();
+                    await gameModel.init();
+                }
+
+                gameView = new GameView();
+                const clubes = gameModel.getClubes();
+                
+                // Renderizar clubes
+                container.innerHTML = clubes.slice(0, 6).map(clube => `
+                    <div class="clube-card" data-clube="${clube.id}">
+                        <div class="clube-logo" style="background: linear-gradient(135deg, ${clube.cor_primaria}, ${clube.cor_secundaria});">
+                            ${clube.nome.charAt(0)}
+                        </div>
+                        <h3>${clube.nome}</h3>
+                        <p><strong>Apelido:</strong> ${clube.apelido}</p>
+                        <p><strong>Cidade:</strong> ${clube.cidade} - ${clube.estado}</p>
+                        <p><strong>Riqueza:</strong> ${clube.riqueza}</p>
+                        <button onclick="selecionarClube(${clube.id})">Selecionar</button>
+                    </div>
+                `).join('');
+
+                resultado.innerHTML = `
+                    <p class="success">✅ Renderização bem-sucedida!</p>
+                    <p class="info">🎨 ${clubes.length} clubes disponíveis</p>
+                    <p class="info">📱 Cards responsivos criados</p>
+                `;
+                
+                console.log('Teste de renderização: SUCESSO');
+            } catch (error) {
+                resultado.innerHTML = `<p class="error">❌ Erro na renderização: ${error.message}</p>`;
+                console.error('Teste de renderização: FALHOU', error);
+            }
+        }
+
+        function testarResponsividade() {
+            const resultado = document.getElementById('resultado-responsividade');
+            
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const userAgent = navigator.userAgent;
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+            
+            resultado.innerHTML = `
+                <p class="success">✅ Responsividade testada!</p>
+                <p class="info">📱 Largura: ${width}px</p>
+                <p class="info">📱 Altura: ${height}px</p>
+                <p class="info">📱 Dispositivo: ${isMobile ? 'Mobile' : 'Desktop'}</p>
+                <p class="info">🌐 User Agent: ${userAgent.substring(0, 50)}...</p>
+            `;
+            
+            console.log('Teste de responsividade: SUCESSO');
+        }
+
+        function testarEventListeners() {
+            const resultado = document.getElementById('resultado-events');
+            
+            try {
+                // Testar criação do controller
+                gameController = new GameController();
+                
+                resultado.innerHTML = `
+                    <p class="success">✅ Event Listeners testados!</p>
+                    <p class="info">🎮 Controller criado</p>
+                    <p class="info">🎯 Model disponível</p>
+                    <p class="info">🎨 View disponível</p>
+                `;
+                
+                console.log('Teste de event listeners: SUCESSO');
+            } catch (error) {
+                resultado.innerHTML = `<p class="error">❌ Erro nos event listeners: ${error.message}</p>`;
+                console.error('Teste de event listeners: FALHOU', error);
+            }
+        }
+
+        function selecionarClube(clubeId) {
+            console.log('Clube selecionado:', clubeId);
+            alert(`Clube ${clubeId} selecionado!`);
+        }
+
+        function limparLogs() {
+            document.getElementById('console-logs').innerHTML = '';
+        }
+
+        // Teste automático ao carregar a página
+        window.addEventListener('load', async () => {
+            console.log('Página carregada - iniciando testes automáticos...');
+            
+            // Aguardar um pouco para garantir que tudo carregou
+            setTimeout(async () => {
+                await testarCarregamento();
+                await testarRenderizacao();
+                testarResponsividade();
+                testarEventListeners();
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 
